@@ -1,0 +1,809 @@
+ /*
+Theme Name: Medbloc HTML Template
+Author: Htmlbeans
+Author URI: https://themeforest.net/user/arklogics
+Version: 1
+Description: Base theme for HTML5
+Text Domain: base
+Tags: one-column, two-columns, three-columns
+Theme URI: http://www.htmlbeans.com/html/medbloc/
+*/
+
+
+/*------------------------------------------------------------------
+1. import files / import files
+2. Body / body
+3. Btn Primary / .btn-primary
+4. Heading / .heading
+5. Heading2 / .heading2
+6. Heading3 / .heading3
+7. Heading4 / .heading4
+8. Heading5 / .heading5
+9. F Heading / .f-heading
+10. Header / .header
+11. Wrapper / #wrapper
+12. Header / #header
+13. Logo / .logo
+14. Nav / #nav
+15. Nav Active / .nav-active
+16. Main / #main
+17. Banner Sec / .banner-sec
+18. Feature Sec / .feature-sec
+19. Content Sec / .contect-sec
+20. Progress Bar / .progress-bar
+21. Application Sec / .application-sec
+22. Partner Sec / .partner-sec
+23. Contact Sec / .contact-sec
+24. Footer / #footer
+25. Back Top / #back-top
+26. Loader Holder / .loader-holder
+
+-------------------------------------------------------------------*/
+
+
+// devices viewport width starts at:
+$breakpoints: (
+	xs-phone: 480px,
+	phone: 640px,
+	tablet: 768px,
+	desktop: 992px,
+	widescreen: 1200px
+);
+ 
+// keywords
+$media-expressions: (
+	'screen': 'screen',
+	'print': 'print',
+	'handheld': 'handheld',
+	'landscape': '(orientation: landscape)',
+	'portrait': '(orientation: portrait)',
+	'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+	'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+);
+
+// ligatured operators ≥ ≤
+
+
+/*------------------------------------------------------------------
+1. import files / import files
+-------------------------------------------------------------------*/
+
+//@import 'vendors/include-media';
+
+@import "bootstrap-custom";
+@import "vendors/bootstrap/variables";
+@import "vendors/bootstrap/mixins";
+
+@import 'base/mixins';
+@import 'base/helpers';
+
+
+/*------------------------------------------------------------------
+2. Body / body
+-------------------------------------------------------------------*/
+body{
+    font-weight: 400;
+    margin: 0;
+    font-family:'Montserrat', sans-serif;
+}
+a{
+	@extend %transition;
+    &:hover,
+    &:focus,
+    &.active{
+        text-decoration: none;
+        outline: none;
+    }
+}
+.bg-full{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.bg-img{
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.fwExtra-Light{font-weight: 200;}
+.fwLight{font-weight: 300;}
+.fwRegular{font-weight: 400;}
+.fwMedium{font-weight: 500;}
+.fwSemi-bold{font-weight: 600;}
+.fwbold{font-weight: 700;}
+.round{border-radius: 5px;}
+.md-round{border-radius: 45px;}
+.lg-round{border-radius: 100%;}
+/*------------------------------------------------------------------
+3. Btn Primary / .btn-primary
+-------------------------------------------------------------------*/
+.btn-primary{
+	display: inline-block;
+	vertical-align: middle;
+	@include font(15px, 18px);
+	background: none;
+	color:$white;
+	border:2px solid $white;
+	padding: 12px 10px;
+	&.bdr{ border:none; }
+	&:hover,
+	&:focus{
+		color: $white;
+		background: $clr-2;
+		border-color:$clr-2;
+	}
+	&.btn-grey{
+		border-color:$clr-9;
+		background: $clr-10;
+		color: $clr-6;
+		&:hover{
+			color:$white;
+			background: $clr-2;
+			border-color: $clr-2;
+		}
+	}
+	&.bdr-skyblue{
+		border-color: $clr-3;
+		&:hover{border-color:$clr-2;}
+	}
+	&.bg-blue{
+		background: $clr-2;
+		&:hover{background:none;}
+	}
+	&.bdr-blue{
+		border-color: $clr-2;
+		&:hover{border-color:$white;}	
+	}
+	&.shadow{  box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2); }
+}
+/*------------------------------------------------------------------
+4. Heading / .heading
+-------------------------------------------------------------------*/
+.heading{
+	@include font(54px, 60px);
+	color: $white;
+	margin: 0 0 36px;
+}
+/*------------------------------------------------------------------
+5. Heading2 / .heading2
+-------------------------------------------------------------------*/
+.heading2{
+	@include font(45px, 50px);
+	padding: 0 0 22px;
+	margin: 0 0 30px;
+	position: relative;
+	&:after{
+		@include element(auto,auto,0,0);
+		z-index: 0;
+		@include size(51px, 2px);
+		background: $clr-2;
+		@extend %transition;
+	}
+}
+/*------------------------------------------------------------------
+6. Heading3 / .heading3
+-------------------------------------------------------------------*/
+.heading3{
+	@include font(18px, 20px);
+	margin: 0;
+}
+/*------------------------------------------------------------------
+7. Heading4 / .heading4
+-------------------------------------------------------------------*/
+.heading4{
+	@include font(24px, 27px);
+	color: $clr-6;
+	margin: 0 0 26px;
+}
+/*------------------------------------------------------------------
+8. Heading5 / .heading5
+-------------------------------------------------------------------*/
+.heading5{
+	@include font(22px, 24px);
+	margin: 0 0 27px;
+	color: $clr-1;
+}
+/*------------------------------------------------------------------
+9. F Heading / .f-heading
+-------------------------------------------------------------------*/
+.f-heading{
+	color: $white;
+	@include font(18px, 20px);
+	padding: 0 0 17px;
+	margin: 0 0 9px;
+	position: relative;
+	&:after{
+		@include element(auto,auto,0,0);
+		background: $white;
+		@include size(0, 1px);
+		z-index: 0;
+		@extend %transition;
+	}
+}
+/*------------------------------------------------------------------
+10. Header / .header
+-------------------------------------------------------------------*/
+.header{
+	@include font(16px, 30px);
+	color: $clr-17;
+}
+.js-tab-hidden {
+    display: block !important;
+    left: -9999px !important;
+    position: absolute !important;
+    top: -9999px !important;
+}
+/*------------------------------------------------------------------
+11. Wrapper / #wrapper
+-------------------------------------------------------------------*/
+#wrapper{ @extend %boxreset; }
+/*------------------------------------------------------------------
+12. Header / #header
+-------------------------------------------------------------------*/
+#header{
+	@extend %clearfix;
+	position: absolute;
+	top: 0;
+	left:0;
+	right:0;
+	padding-top: 29px;
+	&.sticky{
+		position: fixed;
+		z-index: 9;
+		background: linear-gradient(45deg, #1c80df 0%, #7cd1f5 80%, #7cd1f5 100%);
+		padding: 15px 0;
+	}
+	.menu-holder{
+		overflow: hidden;
+		float: right;
+	}
+	.btn-holder{
+		overflow: hidden;
+		display: inline-block;
+		vertical-align: middle;
+		@include font(14px, 17px);
+		a{
+			color:$white;
+			&:first-child{ &:hover{color:$clr-2;} }
+		}
+		.btn-primary{  margin: 0 0 0 26px; }
+	}
+	.nav-opener{
+		@include font(30px, 40px);
+		color: $white;
+		margin: 6px 0 0;
+		float: left;
+	}
+}
+/*------------------------------------------------------------------
+13. Logo / .logo
+-------------------------------------------------------------------*/
+.logo{
+	overflow: hidden;
+	width: 168px;
+	margin: 0 10px 0 0;
+}
+/*------------------------------------------------------------------
+14. Nav / #nav
+-------------------------------------------------------------------*/
+#nav{
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 52px 0 0;
+	@include font(15px, 17px);
+	ul{
+		margin: 0;
+		li{
+			float: left;
+			margin: 0 33px 0 0;
+		}
+		a{
+			color: $white;
+			&.anchor-active,
+			&:hover{color:$clr-2;}
+		}
+	}
+}
+/*------------------------------------------------------------------
+15. Nav Active / .nav-active
+-------------------------------------------------------------------*/
+.nav-active{
+	#nav{
+		opacity: 1;
+		left: 0;
+		visibility: visible;
+	}
+}
+/*------------------------------------------------------------------
+16. Main / #main
+-------------------------------------------------------------------*/
+#main{ overflow: hidden; }
+/*------------------------------------------------------------------
+17. Banner Sec / .banner-sec
+-------------------------------------------------------------------*/
+.banner-sec{
+	overflow: hidden;
+	padding: 255px 0 252px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	.caption{
+		@extend %clearfix;
+		padding-top: 78px;
+		@include font(18px, 28px);
+		color: $white;
+		letter-spacing: 1px;
+		.heading{letter-spacing: 0;}
+		p{margin: 0 0 54px;}
+	}
+	.btn-holder{ @extend %clearfix; }
+	.btn-primary{
+		padding: 12px 24px;
+		margin: 0 18px 0 0;
+		&:first-child{ padding:12px 37px; }
+		&:nth-child(2){   &:hover{box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2); } }
+	}
+	.img-holder{
+		overflow: hidden;
+		width: 992px;
+		margin: 0 0 0 -108px;
+		padding: 39px 119px 57px;
+	}
+}
+/*------------------------------------------------------------------
+18. Feature Sec / .feature-sec
+-------------------------------------------------------------------*/
+.feature-sec{
+	@extend %clearfix;
+	padding-top: 92px;
+	padding-bottom: 52px;
+	&:hover{
+		.heading2{ &:after{width:70px;} }
+	}
+	.heading2{margin: 0 0 86px;}
+	.tabset{
+		@extend %clearfix;
+		margin: 0 0 79px;
+		li{
+			width:270px; 
+			float: left;
+			margin: 0 0 0 30px;
+			box-shadow:0px 20px 30px 0px rgba(221, 231, 238, 1);
+			border-radius: 15px;
+			&:first-child{margin:0;}
+			&.active{
+				background: linear-gradient(45deg, #1c80df 0%,#7cd1f5 100%); 
+				.heading3{color: $white;}
+				svg{
+					path{ stroke:#fff; }
+					path:nth-child(12),
+					path:nth-child(11),
+					path:nth-child(14),
+					path:nth-child(27),
+					path:nth-child(28),
+					path:nth-child(29),
+					path:nth-child(30),
+					path:nth-child(31),
+					path:nth-child(32){fill:#fff;}
+					&.v2{
+						path:nth-child(14),
+						path:nth-child(27),
+						path:nth-child(28),
+						path:nth-child(29),
+						path:nth-child(30),
+						path:nth-child(31),
+						path:nth-child(32){fill:transparent;}
+					}
+				}
+			}
+			&:nth-child(4){ svg{ path:nth-child(12){fill:none;} } }
+		}
+		svg{
+			@include size(80px, 80px);
+			margin: 0 auto 14px;
+			display: block;
+		}
+		a{
+			display: block;
+			padding:70px 0 72px;
+			border-radius: 15px;
+		}
+	}
+	.tabset2{
+		margin: 0 0 97px;
+		li{
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0 20px;
+			&.active{
+				a{
+					color: $clr-1;
+					&:after{width:50px;}
+				}
+			}
+		}
+		a{
+			color: $clr-4;
+			text-transform:capitalize;
+			position: relative;
+			&:after{
+				@include element(auto,auto,-19px,0);
+				height: 2px;
+				background: $clr-2;
+				@extend %transition;
+			}
+		}
+	}
+	.tab-content{ overflow: hidden; }
+	.tab-content2{
+		overflow: hidden;
+		li{
+			width:50%;
+			float: left;
+			margin: 0 0 56px;
+			padding: 0 25px 0 0;
+		}
+	}
+}
+/*------------------------------------------------------------------
+19. Content Sec / .contect-sec
+-------------------------------------------------------------------*/
+.content-sec{
+	@extend %clearfix;
+	position: relative;
+	padding-top: 116px; 
+	padding-bottom: 116px;
+	&:before{
+		@include element(0, 0, -530px, 0);
+		background: $clr-5;
+	}
+	&:hover{
+		.heading2{ &:after{width:70px;} }
+	}
+	.heading2{ letter-spacing: -2px; }
+	.content-holder{
+		@extend %clearfix;
+		margin: 0 0 197px;
+		.content-block{
+			overflow: hidden;
+			padding: 52px 47px 0 41px;
+			color: $clr-8;
+			width:50%;
+			float: left;
+			p{margin: 0 0 30px;}
+		}
+		&:nth-child(3){
+			.content-block{ padding: 30px 47px 0 64px; }
+			.img-holder{padding: 0 78px 0 0;}
+		}
+		&:nth-child(4){
+			.img-holder{padding:0;}
+			.content-block{padding: 0 47px 0 49px;}
+		}
+		.heading4{
+			position: relative;
+			&:after{
+				position:absolute;
+				content: attr(data-heading);
+				@include font(24px, 26px);
+				color: $clr-7;
+				left: -50px;
+				top: 0;
+			}
+		}
+		.btn-primary{
+			padding: 14px 38px;
+			letter-spacing: 3px;
+		}
+	}
+	.img-holder{ 
+		width:50%;
+		float: left;
+		padding: 0 60px 0 20px;
+		img{margin: 0 auto;}
+	}
+}
+/*------------------------------------------------------------------
+20. Progress Bar / .progress-bar
+-------------------------------------------------------------------*/
+.progress-bar{
+	overflow: hidden;
+	width:72.3%;
+	float: left;
+	padding: 7px 0 0;
+	li{
+		overflow: hidden;
+		width:463px;
+		margin: 0 0 49px 53px;
+		box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.2);
+		background: linear-gradient(45deg, #1c80df 0%,#7cd1f5 100%);
+		&:nth-child(1){ .over { background:$clr-13; } }
+		&:nth-child(2){
+			margin:0 0 48px 156px;
+			.txt-holder{ .persont{color: $clr-14;} }
+			.over { background:$clr-14; }
+		}
+		&:nth-child(3){
+			margin:0 0 49px 253px;
+			.txt-holder{ .persont{color: $clr-15;} }
+		}
+		&:nth-child(4){
+			margin:0 0 49px 355px;
+			.txt-holder{ .persont{color: $clr-15;} }
+		}
+		.txt-holder{
+			overflow: hidden;
+			width:72.6%;
+			padding: 20px 22px 31px 20px;
+			background: $white;
+			@include font(20px, 22px);
+			.text{
+				color: $clr-11;
+				display: block;
+				@include font(10px, 12px);
+				margin: 0 0 13px;
+			}
+			.title{ color: $clr-12; }
+			.persont{
+				float: right;
+				color: $clr-13;
+			}
+		}
+		.icon-holder{
+			overflow: hidden;
+			width:27.4%;
+			padding: 15px 15px 18px;
+			text-align: center;
+			svg{
+				@include size(67px, 69px);
+				margin: -3px auto 3px;
+			}
+			.text{
+				color: $white;
+				@include font(15px, 17px);
+				display: block;
+			}
+		}
+	}
+	.bar{
+		overflow: hidden;
+		@include size(295px, 5px);
+		display: inline-block;
+		background: #eaeef4;
+		margin: 23px 0 0;
+		position: relative;
+		border-radius: 5px;
+	}
+	.over {
+	    top: 0;
+	    left: 0;
+	    bottom: 0;
+	    background:$clr-15;
+	    position: absolute;
+	    transition: all .25s linear;
+	    border-radius: 5px;
+	}
+}
+/*------------------------------------------------------------------
+21. Application Sec / .application-sec
+-------------------------------------------------------------------*/
+.application-sec{
+	min-height: 1577px;
+	background-position: 140px 0;
+	margin: -425px 0 0;
+	padding: 547px 0 0;
+	.img-holder{
+		overflow: hidden;
+		background-repeat: no-repeat;
+		background-size: cover;
+		width:27.7%;
+		float: left;
+		padding: 73px 12px 73px 13px;
+	}
+}
+/*------------------------------------------------------------------
+22. Partner Sec / .partner-sec
+-------------------------------------------------------------------*/
+.partner-sec{
+	overflow: hidden;
+	padding-top: 63px;
+	padding-bottom: 67px;
+	.heading2{margin: 0 0 10px;}
+	&:hover{
+		.heading2{
+			&:after{width:70px;}
+		}
+	}
+	.partner-slider{
+		padding: 81px 0;
+		img{
+  			filter: grayscale(100%);
+  			margin: 0 auto;
+  			@extend %transition;
+  			&:hover{ filter: grayscale(0); }
+		}
+	}
+	.slick-prev,
+	.slick-next{
+		position: absolute;
+		background: $clr-10;
+		border:none;
+		text-indent: -9999px;
+		@include size(61px, 60px);
+		top:-69px;
+  		color: $clr-4;
+		border-radius: 5px;
+		@extend %transition;
+		&:after{
+			@include element(18px,0,0,0);
+			font: 22px/24px 'Font Awesome 5 Free';
+  			font-weight: 900;
+  			text-indent: 0;
+  			z-index: 0;
+		}
+		&:hover{
+			background: $clr-16;
+			color: $white;
+		}
+	}
+	.slick-prev{
+		right:65px;
+		&:after{ content: "\f053"; }
+	}
+	.slick-next{
+		right:0;
+		&:after{ content: "\f054"; }
+	}
+}
+/*------------------------------------------------------------------
+23. Contact Sec / .contact-sec
+-------------------------------------------------------------------*/
+.contact-sec{
+	overflow: hidden;
+	position: relative;
+	.contact-block{
+		position: absolute;
+		right: 19.6%;
+		top: 97px;
+		overflow: hidden;
+		width:370px;
+		background: linear-gradient(45deg, #1c80df 0%,#7cd1f5 100%);
+		padding:50px 56px 21px 42px;
+		.heading4{
+			margin: 0 0 39px;
+			color: $white;
+		}
+	}
+	.contact-list{
+		overflow: hidden;
+		margin: 0 0 24px;
+		border-bottom:1px solid rgba($white,0.2);
+		color: $white;
+		li{
+			overflow: hidden;
+			margin: 0 0 15px;
+		}
+		.icon{
+			@include font(20px, 22px);
+			color: $white;
+			width:12.6%;
+			padding:5px 0 0 1px; 
+		}
+		address{
+			line-height: 26px;
+			margin: 0;
+		}
+		.tell,
+		address,
+		.email{ 
+			width:87.4%; 
+			overflow: hidden;
+		}
+	}
+	.contact-list,
+	.social-networks{
+		a{
+			color: $white;
+			&:hover{ color:$clr-2; }
+		}
+	}
+	.social-networks{
+		overflow: hidden;
+		margin: 0;
+		font-size: 15px;
+		li{
+			overflow: hidden;
+			float: left;
+			margin: 0 25px 0 0;
+		}
+	}
+}
+/*------------------------------------------------------------------
+24. Footer / #footer
+-------------------------------------------------------------------*/
+#footer{
+	overflow: hidden;
+	background: linear-gradient(45deg, #1c80df 0%, #7cd1f5 80%, #7cd1f5 100%);
+	padding: 136px 0 53px;
+	.logo{ margin: -10px 0 53px; }
+	.txt-holder{
+		@extend %clearfix;
+		line-height: 22px;
+		color: $white;
+	}
+	a{
+		color: $white;
+		&:hover{ color:$clr-2; }
+	}
+	.col{
+		width:25%;
+		float: left;
+		&:hover{
+			.f-heading{ &:after{ width:50px; } }
+		}
+	}
+	.f-nav{
+		overflow: hidden;
+		font-size: 15px;
+		li{
+			overflow: hidden;
+			padding: 22px 0 0;
+		}
+	}
+	.social-networks{
+		overflow: hidden;
+		padding: 30px 0 63px;
+		margin: 0;
+		li{
+			float: left;
+			margin: 0 26px 0 0;
+		}
+	}
+	.txt{
+		@include font(14px, 16px);
+		color: $white;
+		display: block;
+		p{margin: 0;}
+		a{ font-size: 15px; }
+	}
+}
+/*------------------------------------------------------------------
+25. Back Top / #back-top
+-------------------------------------------------------------------*/
+#back-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    @include font(18px, 20px);
+    color: $white;
+    cursor: pointer;
+    float: right;
+    @include size(50px, 50px);
+    padding: 14px 0;
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+    background: $clr-3;
+    transition: all 0.25s linear;
+    &.active{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+/*------------------------------------------------------------------
+26. Loader Holder / .loader-holder
+-------------------------------------------------------------------*/
+.loader-holder {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  position: fixed;
+  background-color: rgba($white, 0.9);
+  .block {
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+}
